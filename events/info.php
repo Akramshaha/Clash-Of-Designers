@@ -81,7 +81,7 @@
 
             <div class="card text-center">
                 <div class="card-body">
-                <h4 class="card-title"> Event Timing </h4>
+           
                     <p class="card-text">
                     <?php 
                         $eventId = $eventRow['id'];
@@ -112,8 +112,7 @@
                                         $_SESSION['end_time'] = $countDownEndTime;
                                         $eventTiming = explode( " ", $endTime); 
                             ?>
-                                        <h4>ENDING ON</h4>
-                                        <h4 class="mb-4"> <?php echo $eventTiming[1] ?> </h4>
+                                        
                                         <a href="solve?event=<?php echo $eventRow["id"] ?>" class="bg-danger text-light px-5 py-1"
                                             style="border-radius: 30px;font-size: 1.2em;">START</a>
                             <?php   } 

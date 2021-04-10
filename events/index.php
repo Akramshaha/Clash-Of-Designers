@@ -1,7 +1,7 @@
 <?php
     include('../model/connect-db.php');
     include('../model/client-check.php');
-
+    date_default_timezone_set("Asia/Kolkata");
     session_start();
 
     $client = new UserCheckModel();
@@ -52,13 +52,26 @@
                     <div class="col-sm-3">
                         <div class="card" style="width: 18rem;">
 
-                            <img class="card-img-top" src="<?php echo $eventRow['image'] ?>" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"> <?php echo $eventRow['name'] ?></h4>
-                                <p class="card-text">
-
-                                </p>
-                            </div>
+                        <img class="card-img-top" src="<?php echo $eventRow['image'] ?>" alt="Card image cap">
+<div class="card-body">
+    <h4 class="card-title"> <?php echo $eventRow['name'] ?></h4>
+    <p class="card-text">
+        Event Date : 
+            <span class="badge badge-pill badge-secondary">
+                <?php echo date_format(date_create_from_format("Y-m-d H:i:s",$eventRow['start_time']), "d M Y") ?> 
+            </span> 
+            <br>
+        Start Time :
+            <span class="badge badge-pill badge-secondary">
+                <?php echo date_format(date_create_from_format("Y-m-d H:i:s",$eventRow['start_time']), "H:i:s A") ?> 
+            </span> 
+            <br>
+    </p>
+</div>
+<div class="card-footer p-0">
+    <a href="info?event=<?php echo $eventRow['id'] ?>" class="btn btn-primary w-100 h-100"> Learn More </a>
+</div>
+</div>
                         </div>
                     </div>
     <?php      
