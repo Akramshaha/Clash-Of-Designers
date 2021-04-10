@@ -67,14 +67,20 @@
                     <div class="fullscreen p-1"><img src="../assets/images/expand.svg" alt=""></div>
                     <span class="custom-tooltip">View fullscreen</span>
 
-                <?php
+        
+       
+                    
+                    <a href="#" onclick="runDesign()" class="btn btn-success run">RUN</a>
+                    <a href="#" onclick="takeSnapshot()" class="btn btn-danger submit">SUBMIT</a>
+
+                    <?php
                     $startTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['start_time']), "Y-m-d H:i:s");
                     $endTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['end_time']), "Y-m-d H:i:s");
                     $currentTime=date("Y-m-d H:i:s");
                     if($currentTime >=$startTime) {
                         if($currentTime < $endTime) {
                             // Start Test
-                            echo "<p id='timer' class='text-dark'></p>";
+                            echo "<span id='timer' class='timer text-dark'></span>";
                            
                         }else{
                             echo "<script>window.alert('Event Ended'); window.location = 'info?id=$eventId'</script>";
@@ -84,10 +90,7 @@
                     }
 
         ?>
-       
-                    
-                    <a href="#" onclick="runDesign()" class="btn btn-success run">RUN</a>
-                    <a href="#" onclick="takeSnapshot()" class="btn btn-danger submit">SUBMIT</a>
+
                     <div class="fullscreen1 p-1"><img src="../assets/images/compress.svg" alt=""></div>
                     <span class="custom-tooltip1">Exit fullscreen</span>
                 </div>
@@ -227,8 +230,8 @@ var x=setInterval(function() {
         var seconds=Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("timer").innerHTML=days + "d "+ hours + "h "
-        + minutes + "m "+ seconds + "s ";
+        document.getElementById("timer").innerHTML= "<b>"+ hours + "</b>"  + " : "+  "<b>"
+        + minutes + "</b>" + " : "+   "<b>" +seconds + "" + "</b>";
 
         // If the count down is finished, write some text 
         if (distance < 0) {
