@@ -34,18 +34,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/styles/header.css">
 </head>
 
 <body>
-
+<!-- header -->
+<?php  include('header.php') ?>
     <!-- Content -->
-    <div class="text-white text-center"
-        style="background: url('<?php echo $eventRow["image"] ?>'); background-repeat: no-repeat; background-position: center; background-size: cover; height: 30vh; width:auto;">
-        <h1> <?php echo $eventRow["name"] ?></h1>
-    </div>
     <div class="row container-fluid mx-auto px-0">
-        <div class="col-md-9">
-            <h2 class="border-bottom border-dark py-2 mb-4"><?php echo $eventRow["name"] ?></h2>
+        <div class="col-md-9 px-0 mx-0">
+            <div class="text-white text-center px-0"
+                style="background: url('<?php echo $eventRow["image"] ?>'); background-repeat: no-repeat; background-position: center; background-size: cover; height: 40vh; width:auto;">
+                <!-- <h1> <?php // echo $eventRow["name"] ?></h1> -->
+            </div>
+           <div class="px-4">
+           <h1 class="border-bottom border-dark py-2 mb-4"><?php echo $eventRow["name"] ?></h1>
             <p class="text-justify pr-3">
                 <?php echo $eventRow["description"] ?>
             </p>
@@ -69,21 +72,22 @@
 
             <h5 class="border-bottom border-dark pb-2 mt-5">INSTRUCTION</h5>
             <p class="text-justify"> <?php echo $eventRow["instructions"] ?> </p>
-            
+
 
             <h5 class="border-bottom border-dark pb-2 mt-5">Prizes</h5>
             <p class="text-justify">
                 <?php echo $eventRow["prizes"] ?>
             </p>
+           </div>
         </div>
 
         <div class="col-md-3 py-3" style="background-color: #D0D0D0;">
 
-            <div class="card text-center">
+            <div class="card text-center" style="height:36vh;">
                 <div class="card-body">
-           
+
                     <p class="card-text">
-                    <?php 
+                        <?php 
                         $eventId = $eventRow['id'];
 
                         $startTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['start_time']), "Y-m-d H:i:s");
@@ -112,10 +116,10 @@
                                         $_SESSION['end_time'] = $countDownEndTime;
                                         $eventTiming = explode( " ", $endTime); 
                             ?>
-                                        
-                                        <a href="solve?event=<?php echo $eventRow["id"] ?>" class="bg-danger text-light px-5 py-1"
-                                            style="border-radius: 30px;font-size: 1.2em;">START</a>
-                            <?php   } 
+
+                        <a href="solve?event=<?php echo $eventRow["id"] ?>" class="bg-danger text-light px-5 py-1"
+                            style="border-radius: 30px;font-size: 1.2em;">START</a>
+                        <?php   } 
                                     else { // User Request Not Accepted
                                         echo "<h5 class='text-dark'> You are not <br> authorized for the event </h5>";
                                     }
