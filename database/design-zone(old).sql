@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 10, 2021 at 12:13 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- Generation Time: Mar 16, 2021 at 06:28 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -40,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `mail`, `password`, `admin_role`) VALUES
-(1, 'NGC Admin', 'admin@admin.com', '$2y$10$xN01pM1YcC7PBFsuFDSh1uSpwmwAwDbkaRshEuvLuGF.H7DUvyNFq', 'ADMIN_SUPER');
+(1, 'NGC Admin', 'admin@admin.com', '$2y$10$oNTqpVmDm6nFtZW7T9On0.saQZ1Xuq4XHj3nW6/stfZ4gMD1RZGva', 'ADMIN_SUPER');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ CREATE TABLE `design_event` (
 --
 
 INSERT INTO `design_event` (`id`, `name`, `description`, `instructions`, `prizes`, `duration`, `start_time`, `end_time`, `image`, `registration`, `registration_starts`, `registration_ends`, `created_by`, `created_on`) VALUES
-(1, 'Demo Event', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum repellat alias aperiam, tempora suscipit minus ipsam neque porro sequi atque quaerat quod deleniti tempore rem vitae. Est similique aliquam explicabo cumque illum, obcaecati eius. Quam, soluta recusandae. Animi porro corporis officia, repudiandae voluptates nam dolorum fugit aperiam nesciunt dolores, eos totam velit inventore dolorem voluptatem accusamus. At aspernatur culpa ut corporis, amet impedit consequuntur distinctio hic beatae ipsa reiciendis excepturi nesciunt ratione praesentium deserunt tenetur libero iure dolor mollitia? Harum fugiat, unde deleniti aperiam minima voluptatem officiis vel ullam excepturi non beatae asperiores quo, dicta in debitis laboriosam. Consequatur sapiente quis aliquid exercitationem. Sed velit, hic dolorem adipisci nostrum esse ipsam harum maxime nobis deserunt aut aliquid ut repudiandae quae totam suscipit excepturi laborum temporibus aperiam, nulla culpa facilis. Laudantium ea tenetur officia assumenda amet harum voluptas quis nulla quam similique libero eaque asperiores ullam non hic culpa, autem, sed quibusdam! Quae assumenda possimus magni ullam id! Magnam sequi ipsa illo reiciendis voluptate, sunt ipsum nostrum veniam soluta necessitatibus obcaecati minus iste delectus exercitationem provident ducimus omnis dolorem recusandae quo id beatae ab error? Vero quod sequi, assumenda voluptate, doloremque, eum ut laborum laudantium explicabo reprehenderit autem iure! Illo, sed.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi ut reprehenderit nihil facilis, nostrum magni doloribus vel eaque quos voluptatum officiis facere ipsa accusantium fugit, libero veniam dignissimos, accusamus omnis quo mollitia? Voluptatem, pariatur mollitia quisquam provident laborum, perspiciatis esse nulla quibusdam labore reiciendis dolorum sed eveniet ea. Fuga libero consequuntur omnis reprehenderit praesentium optio perspiciatis exercitationem! Nulla delectus odit eaque commodi distinctio alias obcaecati sed nobis corrupti nam consectetur qui, voluptas accusamus voluptatem id. Vel dolorum debitis aut repellat itaque. In aut provident soluta ut necessitatibus quam quidem eius id corrupti fuga ipsam alias mollitia sed, consectetur similique sint?', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis inventore iste laboriosam consequatur eum praesentium ullam possimus adipisci atque beatae aliquid qui, asperiores voluptate exercitationem commodi illum sequi sit quia ad at dolores impedit fugit aut odit? Corporis odio praesentium doloribus, rem exercitationem voluptas esse dolores enim veniam, quis nulla!', '3 Hours', '2021-03-16 22:00:00', '2021-03-22 03:00:00', 'https://appsmaventech.com/images/blog/The-Evolution-Of-Web-Development-Via-Machine-Learning.jpg', 'open', '2021-03-15 22:00:00', '2021-03-21 23:00:00', 1, '2021-03-15 20:07:44');
+(1, 'Demo Event', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum repellat alias aperiam, tempora suscipit minus ipsam neque porro sequi atque quaerat quod deleniti tempore rem vitae. Est similique aliquam explicabo cumque illum, obcaecati eius. Quam, soluta recusandae. Animi porro corporis officia, repudiandae voluptates nam dolorum fugit aperiam nesciunt dolores, eos totam velit inventore dolorem voluptatem accusamus. At aspernatur culpa ut corporis, amet impedit consequuntur distinctio hic beatae ipsa reiciendis excepturi nesciunt ratione praesentium deserunt tenetur libero iure dolor mollitia? Harum fugiat, unde deleniti aperiam minima voluptatem officiis vel ullam excepturi non beatae asperiores quo, dicta in debitis laboriosam. Consequatur sapiente quis aliquid exercitationem. Sed velit, hic dolorem adipisci nostrum esse ipsam harum maxime nobis deserunt aut aliquid ut repudiandae quae totam suscipit excepturi laborum temporibus aperiam, nulla culpa facilis. Laudantium ea tenetur officia assumenda amet harum voluptas quis nulla quam similique libero eaque asperiores ullam non hic culpa, autem, sed quibusdam! Quae assumenda possimus magni ullam id! Magnam sequi ipsa illo reiciendis voluptate, sunt ipsum nostrum veniam soluta necessitatibus obcaecati minus iste delectus exercitationem provident ducimus omnis dolorem recusandae quo id beatae ab error? Vero quod sequi, assumenda voluptate, doloremque, eum ut laborum laudantium explicabo reprehenderit autem iure! Illo, sed.', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi ut reprehenderit nihil facilis, nostrum magni doloribus vel eaque quos voluptatum officiis facere ipsa accusantium fugit, libero veniam dignissimos, accusamus omnis quo mollitia? Voluptatem, pariatur mollitia quisquam provident laborum, perspiciatis esse nulla quibusdam labore reiciendis dolorum sed eveniet ea. Fuga libero consequuntur omnis reprehenderit praesentium optio perspiciatis exercitationem! Nulla delectus odit eaque commodi distinctio alias obcaecati sed nobis corrupti nam consectetur qui, voluptas accusamus voluptatem id. Vel dolorum debitis aut repellat itaque. In aut provident soluta ut necessitatibus quam quidem eius id corrupti fuga ipsam alias mollitia sed, consectetur similique sint?', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis inventore iste laboriosam consequatur eum praesentium ullam possimus adipisci atque beatae aliquid qui, asperiores voluptate exercitationem commodi illum sequi sit quia ad at dolores impedit fugit aut odit? Corporis odio praesentium doloribus, rem exercitationem voluptas esse dolores enim veniam, quis nulla!', '3 Hours', '2021-03-16 22:00:00', '2021-03-17 03:00:00', 'https://appsmaventech.com/images/blog/The-Evolution-Of-Web-Development-Via-Machine-Learning.jpg', 'open', '2021-03-15 22:00:00', '2021-03-16 23:00:00', 1, '2021-03-15 20:07:44');
 
 -- --------------------------------------------------------
 
@@ -95,8 +96,7 @@ CREATE TABLE `design_event_codes` (
 --
 
 INSERT INTO `design_event_codes` (`id`, `user_id`, `event_id`, `html_code`, `css_code`, `js_code`, `saved_on`, `last_saved_on`, `output_placeholder`) VALUES
-(1, 1, 1, '<h1 onclick=\'giveAlert()\'> Hello </h1> dhhgfbhhs\ndjjk\n\n<p>dhhdjkd</p>\n', 'h1 {\n    color: red;\n}', 'document.getElementsByTagName(\"h1\")[0].style.backgroundColor = \"Blue\";', '2021-03-16 01:24:18', '2021-03-19 13:37:52', 'http://res.cloudinary.com/nextgencoder/image/upload/v1616141272/hsg0uvn0wcmxib5vzcwc.png'),
-(2, 2, 1, '<h1 onclick=\'giveAlert()\'> Hello </h1> ajndffjf', 'h1 {\n    color: red;\n}', '', '2021-03-18 13:48:03', '2021-03-18 13:48:03', 'http://res.cloudinary.com/nextgencoder/image/upload/v1616055483/opfjjavylqc1s2lfmrah.png');
+(1, 1, 1, '<h1 onclick=\'giveAlert()\'> Hello </h1> ', 'h1 {\n    color: red;\n}', 'document.getElementsByTagName(\"h1\")[0].style.backgroundColor = \"Blue\";', '2021-03-16 01:24:18', '2021-03-16 01:25:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,14 +112,6 @@ CREATE TABLE `design_event_moderator` (
   `password` varchar(255) NOT NULL,
   `created_on` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `design_event_moderator`
---
-
-INSERT INTO `design_event_moderator` (`id`, `event_id`, `name`, `email`, `password`, `created_on`) VALUES
-(1, 1, 'Akram Shaha', 'akramshaha75@gmail.com', '$2y$10$6d6N8Z.k6FbTvfhk1HGt6OHtvb2J3LIFoQe6Ii5j6vWsKMhmLAmTy', '2021-03-17 22:21:57'),
-(2, 1, 'Nirbhay Bangre', 'nirbhay@admin.com', '$2y$10$12k3qnBXTScBKQLsP63DauwrI41LAaSlzxuhEORc1Gn7Y2I86zlze', '2021-03-19 13:35:47');
 
 -- --------------------------------------------------------
 
@@ -142,8 +134,7 @@ CREATE TABLE `design_event_registration` (
 --
 
 INSERT INTO `design_event_registration` (`id`, `user_id`, `event_id`, `response`, `moderator_id`, `response_on`, `requested_on`) VALUES
-(4, 1, 1, 1, -1, '2021-03-18 14:40:28', '2021-03-16 22:29:21'),
-(5, 3, 1, 0, -1, NULL, '2021-03-19 13:13:42');
+(4, 1, 1, 0, -1, NULL, '2021-03-16 22:29:21');
 
 -- --------------------------------------------------------
 
@@ -190,9 +181,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `mail`, `password`, `birth_date`, `gender`, `phone`, `country`, `image`, `coins`, `verified`, `registered_on`) VALUES
-(1, 'Rajat Patil', 'patilrajat805@gmail.com', '$2y$10$oNTqpVmDm6nFtZW7T9On0.saQZ1Xuq4XHj3nW6/stfZ4gMD1RZGva', NULL, NULL, NULL, NULL, 'Pass -> 1234', 0, 0, '2021-03-15 19:28:16'),
-(2, 'Akram Shaha', 'akramshaha1617@gmail.com', '$2y$10$dtcCSapc6jDblzJmaQoM/uHlGrYI/PZIk0Y/tXHwcpaFukN/GzKLq', NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-03-18 13:47:06'),
-(3, 'Mohit Ugemuge', 'mohit@gmail.com', '$2y$10$kPUlZPhUwHX8f.2GYYYuEu2BNQ9nflNUoEEMf/FMU1mIFQymISU7O', NULL, NULL, NULL, NULL, NULL, 0, 0, '2021-03-19 13:11:02');
+(1, 'Rajat Patil', 'patilrajat805@gmail.com', '$2y$10$oNTqpVmDm6nFtZW7T9On0.saQZ1Xuq4XHj3nW6/stfZ4gMD1RZGva', NULL, NULL, NULL, NULL, 'Pass -> 1234', 0, 0, '2021-03-15 19:28:16');
 
 --
 -- Indexes for dumped tables
@@ -258,25 +247,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `design_event`
 --
 ALTER TABLE `design_event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `design_event_codes`
 --
 ALTER TABLE `design_event_codes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `design_event_moderator`
 --
 ALTER TABLE `design_event_moderator`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `design_event_registration`
 --
 ALTER TABLE `design_event_registration`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `design_event_results`
@@ -288,7 +277,7 @@ ALTER TABLE `design_event_results`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
