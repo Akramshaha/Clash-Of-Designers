@@ -10,9 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prizes = $_POST['prizes'];
     $duration = $_POST['duration'];
     $start_time = str_replace("T"," ", $_POST['start_time']);
+    $start_time .= ":00";
     $end_time = str_replace("T"," ",$_POST['end_time']);
+    $end_time .= ":00";
     $reg_starts = str_replace("T"," ",$_POST['reg_starts']);
+    $reg_starts .= ":00";
     $reg_ends = str_replace("T"," ",$_POST['reg_ends']);
+    $reg_ends .= ":00";
 
 
     

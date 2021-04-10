@@ -15,9 +15,12 @@
     } else {
         echo "<script> window.location = '../user/user-logout.php' </script>";
     }
+    if(isset($_REQUEST['event'])){
+        $event_id = base64_decode($_REQUEST['event']);
+    }
 
     $eventQuery = "SELECT id, name, description, instructions, prizes, duration, start_time, end_time, image, registration, image, registration_starts, registration_ends 
-        FROM design_event LIMIT 1";
+        FROM design_event WHERE id=$event_id";
     $eventResult = mysqli_query($db, $eventQuery);
     $eventRow = mysqli_fetch_assoc($eventResult);
 

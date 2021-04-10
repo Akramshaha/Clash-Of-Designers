@@ -69,7 +69,7 @@
     </p>
 </div>
 <div class="card-footer p-0">
-    <a href="info?event=<?php echo $eventRow['id'] ?>" class="btn btn-primary w-100 h-100"> Learn More </a>
+    <a href="info?event=<?php echo base64_encode($eventRow['id']) ?>" class="btn btn-primary w-100 h-100"> Learn More </a>
 </div>
 </div>
                         </div>
@@ -126,7 +126,7 @@
                             </p>
                         </div>
                         <div class="card-footer p-0">
-                            <a href="info?event=<?php echo $eventRow['id'] ?>" class="btn btn-primary w-100 h-100"> Learn More </a>
+                            <a href="info?event=<?php echo base64_encode($eventRow['id']) ?>" class="btn btn-primary w-100 h-100"> Learn More </a>
                         </div>
                     </div>
                 </div>
