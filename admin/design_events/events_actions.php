@@ -153,12 +153,12 @@
 
                                     <div class="col-4 form-group">
                                         <label for="my-input"><strong>START TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="start_time" value="<?=$event_data_row['start_time']?>" >
+                                        <input id="my-input" class="form-control" type="datetime-local" name="start_time" value="<?=$event_data_row['start_time']?>" >
                                     </div>
 
                                     <div class="col-4 form-group">
                                         <label for="my-input"><strong>END TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="end_time" value="<?=$event_data_row['end_time']?>">
+                                        <input id="my-input" class="form-control" type="datetime-local" name="end_time" value="<?=$event_data_row['end_time']?>">
                                     </div>
 
                                 </div>
@@ -166,12 +166,12 @@
                                 <div class="row">
                                     <div class="col-4 form-group">
                                         <label for="my-input"><strong>REGISTRATION START TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="reg_starts" value="<?=$event_data_row['registration_starts']?>">
+                                        <input id="my-input" class="form-control" type="datetime-local" name="reg_starts" value="<?=$event_data_row['registration_starts']?>">
                                     </div>
 
                                     <div class="col-4 form-group">
                                         <label for="my-input"><strong>REGISTRATION END TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="reg_ends" value="<?=$event_data_row['registration_ends']?>">
+                                        <input id="my-input" class="form-control" type="datetime-local" name="reg_ends" value="<?=$event_data_row['registration_ends']?>">
                                     </div>
 
                                     <div class="col-4 form-group">
@@ -236,12 +236,12 @@
 
                                     <div class="col-4 form-group">
                                         <label for="my-input"><strong>START TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="start_time" value="0">
+                                        <input id="my-input" class="form-control" type="datetime-local" name="start_time" value="0">
                                     </div>
 
                                     <div class="col-4 form-group">
                                         <label for="my-input"><strong>END TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="end_time" value="0">
+                                        <input id="my-input" class="form-control" type="datetime-local" name="end_time" value="0">
                                     </div>
 
                                 </div>
@@ -249,12 +249,12 @@
                                 <div class="row">
                                     <div class="col-6 form-group">
                                         <label for="my-input"><strong>REGISTRATION START TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="reg_starts">
+                                        <input id="my-input" class="form-control" type="datetime-local" name="reg_starts">
                                     </div>
 
                                     <div class="col-6 form-group">
                                         <label for="my-input"><strong>REGISTRATION END TIME</strong></label>
-                                        <input id="my-input" class="form-control" type="datetime" name="reg_ends" value="0">
+                                        <input id="my-input" class="form-control" type="datetime-local" name="reg_ends" value="0">
                                     </div>
 
                                 </div>
