@@ -2,7 +2,7 @@
     include('../model/connect-db.php');
     include('../model/client-check.php');
     date_default_timezone_set("Asia/Kolkata");
-
+    
     session_start();
 
     $client = new UserCheckModel();
@@ -26,6 +26,7 @@
     $eventRow = mysqli_fetch_assoc($eventResult);
 
     $eventId = $eventRow["id"];
+    $eventEndTime = $eventRow["end_time"];
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +66,26 @@
                 <div class="border-bottom border-dark pb-4">
                     <div class="fullscreen p-1"><img src="../assets/images/expand.svg" alt=""></div>
                     <span class="custom-tooltip">View fullscreen</span>
+
+                <?php
+                    $startTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['start_time']), "Y-m-d H:i:s");
+                    $endTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['end_time']), "Y-m-d H:i:s");
+                    $currentTime=date("Y-m-d H:i:s");
+                    if($currentTime >=$startTime) {
+                        if($currentTime < $endTime) {
+                            // Start Test
+                            echo "<p id='timer' class='text-dark'></p>";
+                           
+                        }else{
+                            echo "<script>window.alert('Event Ended'); window.location = 'info?id=$eventId'</script>";
+                        }
+                    }else{
+                        echo "<script>window.alert('Event Not Started Yet'); window.location = 'info?id=$eventId'</script>";
+                    }
+
+        ?>
+       
+                    
                     <a href="#" onclick="runDesign()" class="btn btn-success run">RUN</a>
                     <a href="#" onclick="takeSnapshot()" class="btn btn-danger submit">SUBMIT</a>
                     <div class="fullscreen1 p-1"><img src="../assets/images/compress.svg" alt=""></div>
@@ -187,6 +208,36 @@
             }
         });
     }
+</script>
+
+<!-- Timer Script -->
+<script>
+
+// var countDownDate=new Date("June 15, 2021 11:00:00").getTime();
+
+var countDownDate=new Date("<?= $eventEndTime ?>").getTime();
+
+var x=setInterval(function() {
+        var now=new Date().getTime();
+        var distance=countDownDate - now;
+        // Time calculations for days, hours, minutes and seconds
+        var days=Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours=Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes=Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds=Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("timer").innerHTML=days + "d "+ hours + "h "
+        + minutes + "m "+ seconds + "s ";
+
+        // If the count down is finished, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML="YOU CAN START TEST NOW";
+        }
+    }, 1000);
+
+
 </script>
 
 </html>

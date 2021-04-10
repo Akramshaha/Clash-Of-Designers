@@ -17,7 +17,7 @@
       </li>
     </ul>
     <div class="float-right mr-5">
-      <a href="#" onclick="openLogin()" class="btn text-white py-1 px-3 m-2 sign-up">Log out</a>
+      <a href="../user/user-logout.php" class="btn text-white py-1 px-3 m-2 sign-up">Log out</a>
     </div>
   </div>
 </nav>

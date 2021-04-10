@@ -9,10 +9,15 @@ include('../../model/connect-db.php');
     $instructions = $_POST['instructions'];
     $prizes = $_POST['prizes'];
     $duration = $_POST['duration'];
-    $start_time = $_POST['start_time'];
-    $end_time = $_POST['end_time'];
-    $reg_starts = $_POST['reg_starts'];
-    $reg_ends = $_POST['reg_ends'];
+    $start_time = str_replace("T"," ", $_POST['start_time']);
+    $start_time .= ":00";
+    $end_time = str_replace("T"," ",$_POST['end_time']);
+    $end_time .= ":00";
+    $reg_starts = str_replace("T"," ",$_POST['reg_starts']);
+    $reg_starts .= ":00";
+    $reg_ends = str_replace("T"," ",$_POST['reg_ends']);
+    $reg_ends .= ":00";
+
     $reg = strip_tags($_POST['reg']);
 
     $msg = "";

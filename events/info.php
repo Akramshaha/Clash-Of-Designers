@@ -18,9 +18,8 @@
     if(isset($_REQUEST['event'])){
         $event_id = base64_decode($_REQUEST['event']);
     }
-
-    $eventQuery = "SELECT id, name, description, instructions, prizes, duration, start_time, end_time, image, registration, image, registration_starts, registration_ends 
-        FROM design_event WHERE id=$event_id";
+    
+    $eventQuery = "SELECT * FROM design_event WHERE id=$event_id";
     $eventResult = mysqli_query($db, $eventQuery);
     $eventRow = mysqli_fetch_assoc($eventResult);
 
@@ -153,7 +152,7 @@
 
                                 if($eventRow["registration"] == "open" && $currentTime < $regEndTime) {
                                     echo "<h6 class='text-dark'>
-                                            <a href='register?event=".$eventRow["id"]."' class='btn btn-danger text-light px-3 py-1' style='border-radius: 20px;'>
+                                            <a href='register?event=".base64_encode($eventRow["id"])."' class='btn btn-danger text-light px-3 py-1' style='border-radius: 20px;'>
                                                 REGISTER NOW
                                             </a>
                                         </h6>
