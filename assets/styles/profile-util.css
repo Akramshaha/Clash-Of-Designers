@@ -1,0 +1,52 @@
+    body{
+        background-image:linear-gradient(to right,#8e9eab,#eef2f3);
+        background-repeat: no-repeat;
+        height: 100vh;
+    }
+    .div-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #registerModel{
+        display: none;
+    }
+
+    form {
+        max-width: 500px;
+        top: 0;
+        z-index: 100;
+        margin-top: 120px;
+    }
+    form input{
+        border-radius: 10px !important;
+    }
+
+    form ::-webkit-input-placeholder{
+        padding: 4px !important;
+    }
+    .login{
+    padding: 5px 10px;
+    background: #919baf;
+    border-radius: 6px;
+    }
+
+    @media(max-width:1024px) {
+
+        #closebtn,
+        form {
+            height: 130vh !important;
+        }
+    }
+
+    @media (max-width:768px) {
+        .bg-img {
+            display: none;
+        }
+
+        .modal {
+            margin-top: 0 !important;
+            overflow-y: scroll;
+        }
+    }

@@ -26,84 +26,71 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/styles/profile-util.css">
     <title>Login & Register</title>
 </head>
 
 <body>
-    <div class="container col-3">
 
-        <!-- Tabs Pane -->
-        <ul class="nav nav-tabs text-right">
-            <li class="nav-item">
-                <a href="#signin" class="nav-link bg-light text-dark" data-toggle="tab">LogIn</a>
-            </li>
-            <li class="nav-item">
-                <a href="#signup" class="nav-link bg-light text-dark" data-toggle="tab">SignUp</a>
-            </li>
-        </ul>
-        
-        <!-- Login Pane -->
-        <div class="tab-content border border-info">
-            <div class="tab-pane fade show active" id="signin">
-                <div class="row justify-content-center">
-                    <div class="col card">
-                        <h3 class="font-italic mt-2 text-center card-title">User Login</h3>
-                        <div class="card-body">
-                            <form action="user/user-login" method="post">
-                                <div class="form-group">
-                                    <label for="email">E-mail :</label>
-                                    <input id="email" class="form-control" type="text" name="mail">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password :</label>
-                                    <input id="password" class="form-control" type="password" name="pass">
-                                </div>
+    <!-- Login Pane -->
+    <div id="loginModel" class="mt-5">
+        <div class="div-center form1">
+            <form action="user/user-login" method="post" class="px-5 pt-4 pb-4 rounded">
+                <div class="div-center">
+                    <img src="./assets/images/logo.png" alt="logo" style="height: 80px; width: auto;">
+                </div><br>
+                <h2 class="div-center" style="font-family: hacked;"> CLASH OF DEJOINERS </h2>
+                <br> <input type="text" class="form-control" name="mail" size="40" required
+                    placeholder="Enter Your Email"> <br>
+                <input type="password" class="form-control" name="pass" required placeholder="Enter Your Password">
+                <br>
 
-                                <div class="form-group">
-                                    <button class="btn btn-info" type="submit">Login</button>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
+                <div class="div-center">
+                    <input type="submit" class="px-4 border login" value="login">
                 </div>
-            </div>
 
-            <!-- Register Pane -->
-            <div class="tab-pane fade" id="signup">
-                <div class="row justify-content-center">
-                    <div class="col card">
-                        <h3 class="font-italic mt-2 text-center card-title">User Register</h3>
-                        <div class="card-body">
-                            <form action="user/user-register" method="post">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input id="name" class="form-control" type="text" name="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">E-mail :</label>
-                                    <input id="email" class="form-control" type="text" name="mail">
-                                </div>
+                <a href="#" onclick="openRegister()" class="text-dark mt-4 div-center"> Not Registered? Create an
+                    account </a>
+            </form>
+        </div>
+    </div>
 
-                                <div class="form-group">
-                                    <label for="password">Password :</label>
-                                    <input id="password" class="form-control" type="text" name="pass">
-                                </div>
 
-                                <div class="form-group">
-                                    <button class="btn btn-info" type="submit">Register</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+    <!-- Register Pane -->
+    <div id="registerModel" class="mt-5">
+        <div class="div-center form1">
+            <form action="user/user-register" method="post" class="px-5 pt-4 pb-4 rounded">
+                <div class="div-center">
+                    <img src="./assets/images/logo.png" alt="logo" style="height: 80px; width: auto;">
+                </div><br>
+                <h2 class="div-center" style="font-family: hacked;"> CLASH OF DEJOINERS </h2>
+                <br> 
+                
+                <input type="text" class="form-control" name="name" required placeholder="Enter Your Name"> <br>
+
+                <input type="text" class="form-control" name="mail" size="40" required placeholder="Enter Your Email"> <br>
+
+                <input type="password" class="form-control" name="pass" required placeholder="Enter Your Password">
+                <br>
+
+                <div class="div-center">
+                    <input type="submit" class="px-4 border login" value="register">
                 </div>
-            </div>
-
+            </form>
         </div>
     </div>
 
 </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+
+<script>
+    function openRegister(){
+        document.getElementById('loginModel').style.display = "none";
+        document.getElementById('registerModel').style.display = "block";
+
+    }
+</script>
+
 </html>
