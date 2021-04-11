@@ -102,9 +102,8 @@
              <div class="col-sm-12">
              <div class="jumbotron jumbotron-fluid">
                  <div class="container">
-                     <h1 class="display-4">Upcoming Events</h1>
-                     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
-                         parent.</p>
+                     <h1 class="h3">No Events Currently Running</h1>
+                     <p class="lead">We are sorry to inform you that no events are currently running... Check out our upcoming events!</p>
                  </div>
              </div>
              <br>
@@ -168,12 +167,11 @@
 
             if ( $j==0) { ?>
 
-            <div class="col-sm-12">
+        <div class="col-sm-12">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">Upcoming Events</h1>
-                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
-                        parent.</p>
+                    <h1 class="h3">No Upcoming Events</h1>
+                    <p class="lead">We are sorry to inform you that there are no events to be held... Check out our past events!</p>
                 </div>
             </div>
             <br>
@@ -186,8 +184,11 @@
         <!-- Results -->
         <div class="col-sm-4">
             <h2>Results</h2>
-            <div class="bg-secondary" style="height:30vh; width:100%;">
-
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="h3">No Results</h1>
+                    <p class="lead">You haven't participated yet... Check out our events!</p>
+                </div>
             </div>
         </div>
     </div>
