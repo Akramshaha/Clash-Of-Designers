@@ -83,16 +83,21 @@
             <br>
             <div class="row">
                 <?php
-                    $user_info = "SELECT design_event_codes.*, users.id, users.name, design_event_moderator.event_id FROM design_event_codes
-                               INNER JOIN users,design_event_moderator WHERE design_event_moderator.event_id=design_event_codes.event_id AND users.id=design_event_codes.user_id";
+                    
+                    $user_info = "SELECT DISTINCT design_event_codes.*, design_event_moderator.event_id FROM design_event_codes,design_event_moderator WHERE design_event_moderator.event_id=design_event_codes.event_id ";
                     $user_result = mysqli_query($db, $user_info);
-                   
                     $i = 1;
                     while($user_row = mysqli_fetch_assoc($user_result)){
+                        $resultCode = "SELECT * FROM design_event_results WHERE user_id = ".$user_row['user_id']." AND moderator_id = ".base64_decode($_SESSION["LOGIN_MODERATOR"])."";
+                        $codeResult = mysqli_query($db, $resultCode);
+                        if(mysqli_num_rows($codeResult) <= 0){
+                        // if($resultRow['user_id'] != $user_row['user_id'] && $resultRow['moderator_id'] != base64_decode($_SESSION["LOGIN_MODERATOR"])){
+
+
                 ?>
 
                 <div class="card col-3 m-2 ml-4 snapshot-div p-0" style="border:none;">
-                    <a target="_blank" href="preview.php?code_id=<?php echo base64_encode($user_row['id']); ?>">
+                    <a href="preview.php?code_id=<?php echo base64_encode($user_row['id']); ?>">
                         <div class="card-body snapshot border p-0 border-dark"
                             style="background-image:url(<?=$user_row['output_placeholder'] ?>);">
 
@@ -106,6 +111,7 @@
                 <?php
                         $i++;
                     }
+                }
                     ?>
 
             </div>

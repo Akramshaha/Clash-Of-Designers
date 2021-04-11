@@ -96,72 +96,85 @@
 
     <div class="col-md-4 p-0 border">
         <p class="border-bottom bg-success text-light">Evaluate</p>
-        <div class="form-group px-5">
-        <br>
-            <h2>User Interface</h2>
-        <div class="switch-field">
-            <input type="radio" id="ui-1" name="ui" value="yes" checked/>
-            <label for="ui-1">1</label>
-            <input type="radio" id="ui-2" name="ui" value="maybe" />
-            <label for="ui-2">2</label>
-            <input type="radio" id="ui-3" name="ui" value="no" />
-            <label for="ui-3">3</label>
-            <input type="radio" id="ui-4" name="ui" value="no" />
-            <label for="ui-4">4</label>
-            <input type="radio" id="ui-5" name="ui" value="no" />
-            <label for="ui-5">5</label>
-        </div>
-            <br>
-            <h2>User Experience</h2>
-            <div class="switch-field">
-            <input type="radio" id="ux-1" name="ux" value="yes" checked/>
-            <label for="ux-1">1</label>
-            <input type="radio" id="ux-2" name="ux" value="maybe" />
-            <label for="ux-2">2</label>
-            <input type="radio" id="ux-3" name="ux" value="no" />
-            <label for="ux-3">3</label>
-            <input type="radio" id="ux-4" name="ux" value="no" />
-            <label for="ux-4">4</label>
-            <input type="radio" id="ux-5" name="ux" value="no" />
-            <label for="ux-5">5</label>
-        </div>
-            <br>
+        <form action="./evaluate.php" method="post">
+                <input type="hidden" name="user_id" value="<?= $code_row['user_id'] ?>">
+                <input type="hidden" name="event_id" value="<?= $code_row['event_id'] ?>">
+                <input type="hidden" name="moderator_id" value="<?php echo base64_decode($_SESSION['LOGIN_MODERATOR']); ?>">
+            
+            
 
-            <h2>Color Scheme</h2>
-            <div class="switch-field">
-            <input type="radio" id="cs-1" name="cs" value="yes" checked/>
-            <label for="cs-1">1</label>
-            <input type="radio" id="cs-2" name="cs" value="maybe" />
-            <label for="cs-2">2</label>
-            <input type="radio" id="cs-3" name="cs" value="no" />
-            <label for="cs-3">3</label>
-            <input type="radio" id="cs-4" name="cs" value="no" />
-            <label for="cs-4">4</label>
-            <input type="radio" id="cs-5" name="cs" value="no" />
-            <label for="cs-5">5</label>
-        </div>
-
+            <div class="form-group px-5">
             <br>
-            <h2>Code Readability</h2>
+                <h2>User Interface</h2>
+                <input type="hidden" name="ui_points" id="inputa" value="1">
             <div class="switch-field">
-            <input type="radio" id="cr-1" name="cr" value="yes" checked/>
-            <label for="cr-1">1</label>
-            <input type="radio" id="cr-2" name="cr" value="maybe" />
-            <label for="cr-2">2</label>
-            <input type="radio" id="cr-3" name="cr" value="no" />
-            <label for="cr-3">3</label>
-            <input type="radio" id="cr-4" name="cr" value="no" />
-            <label for="cr-4">4</label>
-            <input type="radio" id="cr-5" name="cr" value="no" />
-            <label for="cr-5">5</label>
-        </div>
-            <br>
+                <input type="radio" id="ui-1" class="input1" onclick="statusChanged()" name="ui" value="1" checked/>
+                <label for="ui-1">1</label>
+                <input type="radio" id="ui-2" class="input1" onclick="statusChanged()" name="ui" value="2" />
+                <label for="ui-2">2</label>
+                <input type="radio" id="ui-3" class="input1" onclick="statusChanged()" name="ui" value="3" />
+                <label for="ui-3">3</label>
+                <input type="radio" id="ui-4" class="input1" onclick="statusChanged()" name="ui" value="4" />
+                <label for="ui-4">4</label>
+                <input type="radio" id="ui-5" class="input1" onclick="statusChanged()" name="ui" value="5" />
+                <label for="ui-5">5</label>
+            </div>
+                <br>
+                <h2>User Experience</h2>
+                <input type="hidden" name="ux_points" id="inputb" value="1">
+                <div class="switch-field">
+                <input type="radio" id="ux-1" class="input2" onclick="statusChanged2()" name="ux" value="1" checked/>
+                <label for="ux-1">1</label>
+                <input type="radio" id="ux-2" class="input2" onclick="statusChanged2()" name="ux" value="2" />
+                <label for="ux-2">2</label>
+                <input type="radio" id="ux-3" class="input2" onclick="statusChanged2()" name="ux" value="3" />
+                <label for="ux-3">3</label>
+                <input type="radio" id="ux-4" class="input2" onclick="statusChanged2()" name="ux" value="4" />
+                <label for="ux-4">4</label>
+                <input type="radio" id="ux-5" class="input2" onclick="statusChanged2()" name="ux" value="5" />
+                <label for="ux-5">5</label>
+            </div>
+                <br>
 
-            <textarea name="" id="" cols="25" rows="5" placeholder="Enter Feedback" style="border-radius:5px;padding:5px;"></textarea>
-            <br><br>
-            <button class="btn btn-danger w-100 font-weight-bold">SUBMIT</button>
-        </div>
+                <h2>Color Scheme</h2>
+                <input type="hidden" name="color_points" id="inputc" value="1">
+            <div class="switch-field">
+                <input type="radio" id="cs-1" class="input3" onclick="statusChanged3()" name="cs" value="1" checked/>
+                <label for="cs-1">1</label>
+                <input type="radio" id="cs-2" class="input3" onclick="statusChanged3()" name="cs" value="2" />
+                <label for="cs-2">2</label>
+                <input type="radio" id="cs-3" class="input3" onclick="statusChanged3()" name="cs" value="3" />
+                <label for="cs-3">3</label>
+                <input type="radio" id="cs-4" class="input3" onclick="statusChanged3()" name="cs" value="4" />
+                <label for="cs-4">4</label>
+                <input type="radio" id="cs-5" class="input3" onclick="statusChanged3()" name="cs" value="5" />
+                <label for="cs-5">5</label>
+            </div>
+
+                <br>
+                <h2>Code Readability</h2>
+                <input type="hidden" name="code_points" id="inputd" value="1">
+            <div class="switch-field">
+                <input type="radio" id="cr-1" class="input4" onclick="statusChanged4()" name="cr" value="1" checked/>
+                <label for="cr-1">1</label>
+                <input type="radio" id="cr-2" class="input4" onclick="statusChanged4()" name="cr" value="2" />
+                <label for="cr-2">2</label>
+                <input type="radio" id="cr-3" class="input4" onclick="statusChanged4()" name="cr" value="3" />
+                <label for="cr-3">3</label>
+                <input type="radio" id="cr-4" class="input4" onclick="statusChanged4()" name="cr" value="4" />
+                <label for="cr-4">4</label>
+                <input type="radio" id="cr-5" class="input4" onclick="statusChanged4()" name="cr" value="5" />
+                <label for="cr-5">5</label>
+            </div>
+                <br>
+
+                <textarea name="feedback" id="" cols="25" rows="5" placeholder="Enter Feedback" style="border-radius:5px;padding:5px;"></textarea>
+                <br><br>
+                <button type="submit" class="btn btn-danger w-100 font-weight-bold">SUBMIT</button>
+            </div>
+        </form>
     </div>
+    
     </div>
     </div>
 
@@ -219,6 +232,48 @@
             $("#css-title").css('background', 'rgb(275, 275, 275)');
             $("#html-title").css('background', '#27A444');
         });
+    </script>
+    <script>
+        function statusChanged(){
+            let topics = document.getElementsByClassName("input1");
+            for (let index = 0; index < topics.length; index++) {
+                const element = topics[index];
+                if( element.checked == true) {
+                    document.getElementById('inputa').value=element.value;
+                    // challengesTable.DataTable().columns(3).search( element.value, false, false, false ).draw();
+                }
+            }
+        }
+        function statusChanged2(){
+            let topics = document.getElementsByClassName("input2");
+            for (let index = 0; index < topics.length; index++) {
+                const element = topics[index];
+                if( element.checked == true) {
+                    document.getElementById('inputb').value=element.value;
+                    // challengesTable.DataTable().columns(3).search( element.value, false, false, false ).draw();
+                }
+            }
+        }
+        function statusChanged3(){
+            let topics = document.getElementsByClassName("input3");
+            for (let index = 0; index < topics.length; index++) {
+                const element = topics[index];
+                if( element.checked == true) {
+                    document.getElementById('inputc').value=element.value;
+                    // challengesTable.DataTable().columns(3).search( element.value, false, false, false ).draw();
+                }
+            }
+        }
+        function statusChanged4(){
+            let topics = document.getElementsByClassName("input4");
+            for (let index = 0; index < topics.length; index++) {
+                const element = topics[index];
+                if( element.checked == true) {
+                    document.getElementById('inputd').value=element.value;
+                    // challengesTable.DataTable().columns(3).search( element.value, false, false, false ).draw();
+                }
+            }
+        }
     </script>
 
 
