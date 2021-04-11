@@ -60,6 +60,8 @@
                 $currentTime = date("Y-m-d H:i:s");
 
                 if($currentTime >= $startTime && $currentTime < $endTime) { ?>
+
+                
             <div class="col-sm-4">
                 <div class="card border-0" style="width: 100%;">
                     <div class="p-3" style="width:18rem;">
@@ -85,6 +87,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <?php    
@@ -92,56 +95,45 @@
                 }  
             }  
             ?>
-        </div>
 
-        <!-- Results -->
-        <div class="col-sm-4">
-            <h2>Results</h2>
-            <div class="bg-secondary" style="height:30vh; width:100%;">
+<?php      
+             if ( $i==0) { ?>
+ 
+             <div class="col-sm-12">
+             <div class="jumbotron jumbotron-fluid">
+                 <div class="container">
+                     <h1 class="display-4">Upcoming Events</h1>
+                     <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
+                         parent.</p>
+                 </div>
+             </div>
+             <br>
+         </div>
+     <?php }
+     ?>
 
+
+<div class="row m-2">
+<div class="col-sm-12 pl-4">
+                <h2> Upcoming Events </h2>
             </div>
-        </div>
-    </div>
 
-
-    </div>
-    <?php      
-             
-
-            if ( $i==0) { ?>
-
-
-
-    <div class="jumbotron jumbotron">
-        <div class="container">
-            <h4 class="display-6 ml-0">No Events Currently Running</h4>
-            <p class="lead">We are sorry to inform you that no events are currently running... Check out our upcoming
-                events!</p>
-        </div>
-    </div>
-    <?php }
-    ?>
-    </div>
-
-    <div class="row m-5">
-        <div class="col-sm-12">
-            <h2>Upcoming Events</h2>
-            <br>
-        </div>
         <?php 
         $eventQuery = "SELECT id, name, description, start_time, end_time, image, registration, image, registration_starts, registration_ends FROM design_event";
         $eventResult = mysqli_query($db, $eventQuery);
+        $j = 0;
     
-        while ( $eventRow = mysqli_fetch_assoc($eventResult)) { 
+        while ( $eventRow = mysqli_fetch_assoc($eventResult)) {
             $eventId = $eventRow['id'];
             $startTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['start_time']), "Y-m-d H:i:s");
             $endTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['end_time']), "Y-m-d H:i:s");
             $currentTime = date("Y-m-d H:i:s");
 
             if($currentTime < $startTime ) { ?>
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
+        <div class="col-sm-4">
+            <div class="card border-0" style="width: 18rem;">
 
+                <div class="p-3">
                 <img class="card-img-top" src="<?php echo $eventRow['image'] ?>" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title"> <?php echo $eventRow['name'] ?></h4>
@@ -162,10 +154,42 @@
                     <a href="info?event=<?php echo base64_encode($eventRow['id']) ?>"
                         class="btn btn-primary w-100 h-100"> Learn More </a>
                 </div>
+                </div>
             </div>
         </div>
-        <?php   }  
+        <?php   
+            $j++;
+            }  
         } ?>
+    </div>
+
+    <?php      
+             
+
+            if ( $j==0) { ?>
+
+            <div class="col-sm-12">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Upcoming Events</h1>
+                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
+                        parent.</p>
+                </div>
+            </div>
+            <br>
+        </div>
+    <?php }
+    ?>
+
+        </div>
+
+        <!-- Results -->
+        <div class="col-sm-4">
+            <h2>Results</h2>
+            <div class="bg-secondary" style="height:30vh; width:100%;">
+
+            </div>
+        </div>
     </div>
 
 </body>

@@ -49,7 +49,7 @@
                 style="background: url('<?php echo $eventRow["image"] ?>'); background-repeat: no-repeat; background-position: center; background-size: cover; height: 40vh; width:auto;">
                 <!-- <h1> <?php // echo $eventRow["name"] ?></h1> -->
             </div>
-           <div class="px-4">
+           <div class="px-5 py-2">
            <h1 class="border-bottom border-dark py-2 mb-4"><?php echo $eventRow["name"] ?></h1>
             <p class="text-justify pr-3">
                 <?php echo $eventRow["description"] ?>

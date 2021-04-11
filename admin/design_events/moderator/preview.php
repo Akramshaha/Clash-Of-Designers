@@ -97,49 +97,68 @@
     <div class="col-md-4 p-0 border">
         <p class="border-bottom bg-success text-light">Evaluate</p>
         <div class="form-group px-5">
-        <br><br>
-            <select class="form-control text-secondary" id="exampleFormControlSelect1">
-                <option value="ui">User Interface</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <br><br>
+        <br>
+            <h2>User Interface</h2>
+        <div class="switch-field">
+            <input type="radio" id="ui-1" name="ui" value="yes" checked/>
+            <label for="ui-1">1</label>
+            <input type="radio" id="ui-2" name="ui" value="maybe" />
+            <label for="ui-2">2</label>
+            <input type="radio" id="ui-3" name="ui" value="no" />
+            <label for="ui-3">3</label>
+            <input type="radio" id="ui-4" name="ui" value="no" />
+            <label for="ui-4">4</label>
+            <input type="radio" id="ui-5" name="ui" value="no" />
+            <label for="ui-5">5</label>
+        </div>
+            <br>
+            <h2>User Experience</h2>
+            <div class="switch-field">
+            <input type="radio" id="ux-1" name="ux" value="yes" checked/>
+            <label for="ux-1">1</label>
+            <input type="radio" id="ux-2" name="ux" value="maybe" />
+            <label for="ux-2">2</label>
+            <input type="radio" id="ux-3" name="ux" value="no" />
+            <label for="ux-3">3</label>
+            <input type="radio" id="ux-4" name="ux" value="no" />
+            <label for="ux-4">4</label>
+            <input type="radio" id="ux-5" name="ux" value="no" />
+            <label for="ux-5">5</label>
+        </div>
+            <br>
 
-            <select class="form-control text-secondary" id="exampleFormControlSelect1">
-                <option value="ux">User Experience</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <br><br>
+            <h2>Color Scheme</h2>
+            <div class="switch-field">
+            <input type="radio" id="cs-1" name="cs" value="yes" checked/>
+            <label for="cs-1">1</label>
+            <input type="radio" id="cs-2" name="cs" value="maybe" />
+            <label for="cs-2">2</label>
+            <input type="radio" id="cs-3" name="cs" value="no" />
+            <label for="cs-3">3</label>
+            <input type="radio" id="cs-4" name="cs" value="no" />
+            <label for="cs-4">4</label>
+            <input type="radio" id="cs-5" name="cs" value="no" />
+            <label for="cs-5">5</label>
+        </div>
 
-            <select class="form-control text-secondary" id="exampleFormControlSelect1">
-                <option value="color">Color Scheme</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <br>
+            <h2>Code Readability</h2>
+            <div class="switch-field">
+            <input type="radio" id="cr-1" name="cr" value="yes" checked/>
+            <label for="cr-1">1</label>
+            <input type="radio" id="cr-2" name="cr" value="maybe" />
+            <label for="cr-2">2</label>
+            <input type="radio" id="cr-3" name="cr" value="no" />
+            <label for="cr-3">3</label>
+            <input type="radio" id="cr-4" name="cr" value="no" />
+            <label for="cr-4">4</label>
+            <input type="radio" id="cr-5" name="cr" value="no" />
+            <label for="cr-5">5</label>
+        </div>
+            <br>
 
+            <textarea name="" id="" cols="25" rows="5" placeholder="Enter Feedback" style="border-radius:5px;padding:5px;"></textarea>
             <br><br>
-            <select class="form-control text-secondary" id="exampleFormControlSelect1">
-                <option value="codeRead">Code Readability</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <br><br>
-
-            <textarea name="" id="" cols="25" rows="5" placeholder="Enter Feedback"></textarea>
-            <br><br><br>
             <button class="btn btn-danger w-100 font-weight-bold">SUBMIT</button>
         </div>
     </div>
