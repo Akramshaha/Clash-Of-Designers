@@ -186,8 +186,37 @@
         <!-- Results -->
         <div class="col-sm-4">
             <h2>Results</h2>
-            <div class="bg-secondary" style="height:30vh; width:100%;">
+            <div class="col" style="width:100%;">
+            <?php 
+        $eventQuery = "SELECT id, name, description, start_time, end_time, image, registration, image, registration_starts, registration_ends FROM design_event";
+        $eventResult = mysqli_query($db, $eventQuery);
+        $j = 0;
+    
+        while ( $eventRow = mysqli_fetch_assoc($eventResult)) {
+            $eventId = $eventRow['id'];
+            $startTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['start_time']), "Y-m-d H:i:s");
+            $endTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['end_time']), "Y-m-d H:i:s");
+            $currentTime = date("Y-m-d H:i:s");
+            if($currentTime > $endTime ) { ?>
 
+            <div class="col-sm-12 p-1">
+                <div class="card mt-1">
+                    <div class="row card-body p-1">
+                    <img class="col-sm-5" src="<?php echo $eventRow['image'] ?>" alt="sans"/>
+                       <div class="col-sm-7">
+                          <h5 class="card-title"><?php echo $eventRow['name'] ?></h5>
+                           <p class="card-text text-truncate"><?php echo $eventRow['description'] ?></p>
+                           <a href="leaderboard.php?event=<?= base64_encode($eventRow['id']) ?>" class="btn btn-sm float-right btn-primary">Leaderboard</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <?php 
+
+            }
+        }?>
             </div>
         </div>
     </div>
