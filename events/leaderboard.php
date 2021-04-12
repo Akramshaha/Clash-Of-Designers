@@ -24,8 +24,6 @@
     $eventRow = mysqli_fetch_assoc($eventResult);
 
     $eventId = $eventRow["id"];
-
-
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +39,12 @@
     <link rel="stylesheet" href="../assets/styles/header.css">
 </head>
 
-<body>
+<body onload="getLeaderboard()">
 <!-- header -->
 <?php  include('header.php') ?>
     <!-- Content -->
     <div class="row container-fluid mx-auto px-0">
-        <div class="col-md-7 px-0 mx-0">
+        <div class="col-md-12 px-0 mx-0">
             <div class="text-white text-center px-0"
                 style="background: url('<?php echo $eventRow["image"] ?>'); background-repeat: no-repeat; background-position: center; background-size: cover; height: 40vh; width:auto;">
                 <!-- <h1> <?php // echo $eventRow["name"] ?></h1> -->
@@ -62,68 +60,84 @@
                 <?php echo $eventRow["description"] ?>
             </p>
 
-            <h5 class="border-bottom border-dark pb-2 mt-5">INSTRUCTION</h5>
-            <p class="text-justify"> <?php echo $eventRow["instructions"] ?> </p>
-
-
-            <h5 class="border-bottom border-dark pb-2 mt-5">Prizes</h5>
-            <p class="text-justify">
-                <?php echo $eventRow["prizes"] ?>
-            </p>
-           </div>
-        </div>
-
-        <div class="col-md-5 py-3" style="background-color: #D0D0D0;">
-
-            <div class="card" style="height:100vh;">
-                <!-- <div class="card-body">
-
-                    <p class="card-text">
-                        
-                    </p>
-                </div> -->
-               
-
+            <div class="p-5 mx-5">
+                <h2 class="text-center m-3">Leaderboard</h3>
                 <table class="table table-light">
                     <thead class="thead-dark text-center">
                         <tr>
                             <th>Name</th>
+                            <th>Ui Points</th>
+                            <th>Ux Points</th>
+                            <th>Color Points</th>
+                            <th>Code Points</th>
                             <th>Points</th>
                         </tr>
                     </thead>
-                    <tbody class="bg-light">
-                    <?php
-                        $codeResults = "SELECT users.id, users.name, design_event_results.user_id , 
-                                        SUM(design_event_results.ui_points)AS ui_sums , 
-                                        SUM(design_event_results.ux_points) AS ux_sums,
-                                        SUM(design_event_results.color_points)AS color_sums , 
-                                        SUM(design_event_results.code_points) AS code_sums
-                         FROM users,design_event_results WHERE design_event_results.user_id=users.id GROUP BY design_event_results.user_id";
-                        $codeQuery = mysqli_query($db, $codeResults);
-                        while($codeRow = mysqli_fetch_assoc($codeQuery)){
-                            $totalpoints = $codeRow['ui_sums']+$codeRow['ux_sums']+$codeRow['color_sums']+$codeRow['code_sums'];
-                    ?>
-                        <tr>
-                            <td><?= $codeRow['name'] ?></td>
-                            <td><?= $totalpoints ?></td>
-                        </tr>
-                        <?php
-                        }
-                        ?>
+                    <tbody class="bg-light text-center" id="tableBody">
+
                     </tbody>
-                    <tfoot class="bg-dark text-center text-light">
-                        <tr>
-                            <th>#</th>
-                            <th>#</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
             
+         
+           </div>
         </div>
     </div>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    function compare( a, b ) {
+        if ( a.points < b.points ){
+            return 1;
+        }
+        if ( a.points > b.points ){
+            return -1;
+        }
+        return 0;
+    }
+
+    function getLeaderboard( ) {
+
+        var checkingData = {
+            "event": `<?php echo $eventId; ?>`,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "get-leaderboard.php",
+            data: checkingData,
+            beforeSend: function () {
+                
+            },
+            success: function (msg) {
+                try {
+                    let tableContent = "";
+                    let jsonArr = (JSON.parse(msg))["leaderboard"];
+                    jsonArr.sort( compare)
+
+                    for( let user of jsonArr) {
+                        tableContent += "<tr> ";
+                        tableContent += "<td> " + user.name + "</td>";
+                        tableContent += "<td> " + user.ui + "</td>";
+                        tableContent += "<td> " + user.ux + "</td>";
+                        tableContent += "<td> " + user.color + "</td>";
+                        tableContent += "<td> " + user.code + "</td>";
+                        tableContent += "<td> " + user.points + "</td>";
+                        tableContent += "</tr>";
+                    }
+
+                    document.getElementById( "tableBody").innerHTML = tableContent;
+                } catch (e) {
+                } 
+            }
+        });
+    }
+
+    
+
+</script>
 
 </html>
 

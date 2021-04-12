@@ -119,7 +119,7 @@
                                         $eventTiming = explode( " ", $endTime); 
                             ?>
 
-                        <a href="solve?event=<?php echo $eventRow["id"] ?>" class="bg-danger text-light px-5 py-1"
+                        <a href="solve?event=<?php echo base64_encode( $eventRow["id"]) ?>" class="bg-danger text-light px-5 py-1"
                             style="border-radius: 30px;font-size: 1.2em;">START</a>
                         <?php   } 
                                     else { // User Request Not Accepted
