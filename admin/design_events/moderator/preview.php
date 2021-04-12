@@ -328,12 +328,12 @@
             $(".mobile-output").show();
             $(".mob").show();
             $(".output").hide();
-            $(".mobile-1").css('width', '310px');
-            $(".mobile-1").css('height', '600px');
-            $(".mobile-2").css('width', '320px');
-            $(".mobile-2").css('height', '600px');
-            $(".mobile-3").css('width', '275px');
-            $(".mobile-3").css('height', '490px');
+            $(".mobile-1").css('width', '80%');
+            $(".mobile-1").css('height', '75%');
+            $(".mobile-2").css('width', '90%');
+            $(".mobile-2").css('height', '75%');
+            $(".mobile-3").css('width', '80%');
+            $(".mobile-3").css('height', '70%');
         });
 
 

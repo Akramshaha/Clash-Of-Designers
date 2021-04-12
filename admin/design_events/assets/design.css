@@ -158,6 +158,7 @@ body {
 
     .mob{
         display: none;
+        overflow-y: scroll;
     }
     .output{
         display: block;
@@ -183,19 +184,19 @@ body {
 
     .mob-1{
         background: url(../assets/images/phone.png);
-        background-size: 350px auto;
+        background-size: 90% 90%;
         background-repeat: no-repeat;
         z-index: 100;
     }
     .mob-2{
         background: url(../assets/images/phone-pro.png);
-        background-size: 340px auto;
+        background-size: 90% 90%;
         background-repeat: no-repeat;
         z-index: 100;
     }
     .mob-3{
         background: url(../assets/images/phone-lite.png);
-        background-size: 320px auto;
+        background-size: 90% 90%;
         background-repeat: no-repeat;
         z-index: 100;
     }
