@@ -50,15 +50,38 @@
         while($code_row = mysqli_fetch_assoc($code_result)) { 
     ?>
 
-    <div class="container-fluid row mx-auto">
-        <div class="col col-md-8 p-0 border" id="add-col">
+    <div class="row px-5 py-2 icons">
+       <span class="view-code btn btn-secondary btn-sm mr-2"> <img src="../assets/images/icon-code.png"> Show Code</span>
+       <span class="desktop-view btn btn-secondary btn-sm mr-2 active">  <img src="../assets/images/icon-desktop.png"> Desktop View</span>
+       <span class="mobile-view btn btn-secondary btn-sm">  <img src="../assets/images/icon-mobile.png"> Mobile View</span>
+       <span class="open-evaluate btn btn-secondary btn-sm px-3 py-2">  <img src="../assets/images/icon-evaluate.png">&nbsp; Evaluate</span>
+    </div>
+    <div class="container-fluid p-0 mx-auto">
+        <div class=" p-0 pl-3 border row" id="add-col">
 
-            <div class="row-md-6">
+           
+
+            <!-- Output -->
+            <div class="output col-sm-9">
                 <iframe id="output"> </iframe>
             </div>
 
+            <!-- Mobile view -->
+                <div class="mob mob-1 col-sm-3">
+                <iframe class="mobile-output mobile-1" id="output1"> </iframe>
+                </div>
+                <div class="mob mob-2 col-sm-3">
+                <iframe class="mobile-output mobile-2" id="output2"> </iframe>
+                </div>
+                <div class="mob mob-3 col-sm-3">
+                <iframe class="mobile-output mobile-3" id="output3"> </iframe>
+                </div>
+            <!-- </div> -->
             <script>
                 var output = document.getElementById("output").contentWindow.document;
+                var output1 = document.getElementById("output1").contentWindow.document;
+                var output2 = document.getElementById("output2").contentWindow.document;
+                var output3 = document.getElementById("output3").contentWindow.document;
 
                 var htmlFrameCode = `<?php echo $code_row['html_code']; ?>`;
                 var cssFrameCode = `<?php echo $code_row['css_code']; ?>`;
@@ -72,10 +95,37 @@
 
                 output.writeln(frameCode);
                 output.close();
+
+                output1.open();
+
+                var frameCode = htmlFrameCode;
+                frameCode += "<style>" + cssFrameCode + "</style>";
+                frameCode += "<script>" + jsFrameCode + "<\/script>";
+
+                output1.writeln(frameCode);
+                output1.close();
+
+                output2.open();
+
+                var frameCode = htmlFrameCode;
+                frameCode += "<style>" + cssFrameCode + "</style>";
+                frameCode += "<script>" + jsFrameCode + "<\/script>";
+
+                output2.writeln(frameCode);
+                output2.close();
+
+                output3.open();
+
+                var frameCode = htmlFrameCode;
+                frameCode += "<style>" + cssFrameCode + "</style>";
+                frameCode += "<script>" + jsFrameCode + "<\/script>";
+
+                output3.writeln(frameCode);
+                output3.close();
             </script>
 
-
-            <div class="row-md-6 p-0 border" id="ready">
+            <!-- code -->
+            <div class="code p-0 border" id="ready">
                 <div class="editor-title border">
                     <p><span id="html-title"> HTML </span> <span id="css-title"> CSS </span> <span id="js-title"> JS
                         </span></p>
@@ -92,80 +142,78 @@
                     <div id="js" class="editors" placeholder="JavaScript"> </div>
                 </div>
             </div>
+            <!-- Evaluation -->
+            <div class="col-sm-3 p-0 border evaluate">
+                <img src="../assets/images/close_evaluate.png" class="close-evaluate px-2 py-3">
+                <p class="border-bottom w-100 bg-success text-light py-2 h3 px-5">Evaluate</p>
+                <div class="form-group px-5">
+                    <br>
+                    <h2>User Interface</h2>
+                    <div class="switch-field">
+                        <input type="radio" id="ui-1" name="ui" value="yes" checked />
+                        <label for="ui-1">1</label>
+                        <input type="radio" id="ui-2" name="ui" value="maybe" />
+                        <label for="ui-2">2</label>
+                        <input type="radio" id="ui-3" name="ui" value="no" />
+                        <label for="ui-3">3</label>
+                        <input type="radio" id="ui-4" name="ui" value="no" />
+                        <label for="ui-4">4</label>
+                        <input type="radio" id="ui-5" name="ui" value="no" />
+                        <label for="ui-5">5</label>
+                    </div>
+                    <h2>User Experience</h2>
+                    <div class="switch-field">
+                        <input type="radio" id="ux-1" name="ux" value="yes" checked />
+                        <label for="ux-1">1</label>
+                        <input type="radio" id="ux-2" name="ux" value="maybe" />
+                        <label for="ux-2">2</label>
+                        <input type="radio" id="ux-3" name="ux" value="no" />
+                        <label for="ux-3">3</label>
+                        <input type="radio" id="ux-4" name="ux" value="no" />
+                        <label for="ux-4">4</label>
+                        <input type="radio" id="ux-5" name="ux" value="no" />
+                        <label for="ux-5">5</label>
+                    </div>
+
+                    <h2>Color Scheme</h2>
+                    <div class="switch-field">
+                        <input type="radio" id="cs-1" name="cs" value="yes" checked />
+                        <label for="cs-1">1</label>
+                        <input type="radio" id="cs-2" name="cs" value="maybe" />
+                        <label for="cs-2">2</label>
+                        <input type="radio" id="cs-3" name="cs" value="no" />
+                        <label for="cs-3">3</label>
+                        <input type="radio" id="cs-4" name="cs" value="no" />
+                        <label for="cs-4">4</label>
+                        <input type="radio" id="cs-5" name="cs" value="no" />
+                        <label for="cs-5">5</label>
+                    </div>
+
+                    <h2>Code Readability</h2>
+                    <div class="switch-field">
+                        <input type="radio" id="cr-1" name="cr" value="yes" checked />
+                        <label for="cr-1">1</label>
+                        <input type="radio" id="cr-2" name="cr" value="maybe" />
+                        <label for="cr-2">2</label>
+                        <input type="radio" id="cr-3" name="cr" value="no" />
+                        <label for="cr-3">3</label>
+                        <input type="radio" id="cr-4" name="cr" value="no" />
+                        <label for="cr-4">4</label>
+                        <input type="radio" id="cr-5" name="cr" value="no" />
+                        <label for="cr-5">5</label>
+                    </div>
+                    <textarea name="" id="" cols="30" rows="7" placeholder="Enter Feedback"
+                        style="border-radius:5px;padding:5px;"></textarea>
+                    <br><br><br>
+                </div>
+                <button class="btn btn-danger w-100 font-weight-bold">SUBMIT</button>
+            </div>
         </div>
 
-    <div class="col-md-4 p-0 border">
-        <p class="border-bottom bg-success text-light">Evaluate</p>
-        <div class="form-group px-5">
-        <br>
-            <h2>User Interface</h2>
-        <div class="switch-field">
-            <input type="radio" id="ui-1" name="ui" value="yes" checked/>
-            <label for="ui-1">1</label>
-            <input type="radio" id="ui-2" name="ui" value="maybe" />
-            <label for="ui-2">2</label>
-            <input type="radio" id="ui-3" name="ui" value="no" />
-            <label for="ui-3">3</label>
-            <input type="radio" id="ui-4" name="ui" value="no" />
-            <label for="ui-4">4</label>
-            <input type="radio" id="ui-5" name="ui" value="no" />
-            <label for="ui-5">5</label>
-        </div>
-            <br>
-            <h2>User Experience</h2>
-            <div class="switch-field">
-            <input type="radio" id="ux-1" name="ux" value="yes" checked/>
-            <label for="ux-1">1</label>
-            <input type="radio" id="ux-2" name="ux" value="maybe" />
-            <label for="ux-2">2</label>
-            <input type="radio" id="ux-3" name="ux" value="no" />
-            <label for="ux-3">3</label>
-            <input type="radio" id="ux-4" name="ux" value="no" />
-            <label for="ux-4">4</label>
-            <input type="radio" id="ux-5" name="ux" value="no" />
-            <label for="ux-5">5</label>
-        </div>
-            <br>
 
-            <h2>Color Scheme</h2>
-            <div class="switch-field">
-            <input type="radio" id="cs-1" name="cs" value="yes" checked/>
-            <label for="cs-1">1</label>
-            <input type="radio" id="cs-2" name="cs" value="maybe" />
-            <label for="cs-2">2</label>
-            <input type="radio" id="cs-3" name="cs" value="no" />
-            <label for="cs-3">3</label>
-            <input type="radio" id="cs-4" name="cs" value="no" />
-            <label for="cs-4">4</label>
-            <input type="radio" id="cs-5" name="cs" value="no" />
-            <label for="cs-5">5</label>
-        </div>
-
-            <br>
-            <h2>Code Readability</h2>
-            <div class="switch-field">
-            <input type="radio" id="cr-1" name="cr" value="yes" checked/>
-            <label for="cr-1">1</label>
-            <input type="radio" id="cr-2" name="cr" value="maybe" />
-            <label for="cr-2">2</label>
-            <input type="radio" id="cr-3" name="cr" value="no" />
-            <label for="cr-3">3</label>
-            <input type="radio" id="cr-4" name="cr" value="no" />
-            <label for="cr-4">4</label>
-            <input type="radio" id="cr-5" name="cr" value="no" />
-            <label for="cr-5">5</label>
-        </div>
-            <br>
-
-            <textarea name="" id="" cols="25" rows="5" placeholder="Enter Feedback" style="border-radius:5px;padding:5px;"></textarea>
-            <br><br>
-            <button class="btn btn-danger w-100 font-weight-bold">SUBMIT</button>
-        </div>
     </div>
     </div>
-    </div>
 
-    <div id="output1"></div>
     <?php } ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -193,6 +241,62 @@
     </script>
 
     <script>
+        function removeActive(){
+            $(".view-code").removeClass("active");
+            $(".desktop-view").removeClass("active");
+            $(".mobile-view").removeClass("active");
+            $(".close-evaluate").hide();
+        }
+
+        $(".desktop-view").click(function () {
+            removeActive();
+            $(".close-evaluate").show();
+            $(".desktop-view").addClass("active");
+            $(".output").removeClass("col-md-12");
+            $(".evaluate").show("slide", {
+                direction: "right"
+            }, 500);
+            $(".output").show();
+            $(".code").hide();
+            $(".mob").hide();
+        });
+
+        $(".close-evaluate").click(function () {
+            $(".output").addClass("col-md-12");
+            $(".evaluate").hide("slide", {
+                direction: "right"
+            }, 500);
+        });
+
+        $(".view-code").click(function () {
+            removeActive();
+            $(".view-code").addClass("active");
+            $(".output").hide();
+            $(".mob").hide();
+            $(".code").addClass("col-md-9");
+            $(".evaluate").show();
+            $(".code").show();
+            $(".evaluate").show();
+        });
+
+
+        $(".mobile-view").click(function () {
+            removeActive();
+            $(".mobile-view").addClass("active");
+            $(".evaluate").show();
+            $(".code").hide();
+            $(".mobile-output").show();
+            $(".mob").show();
+            $(".output").hide();
+            $(".mobile-1").css('width', '310px');
+            $(".mobile-1").css('height', '600px');
+            $(".mobile-2").css('width', '320px');
+            $(".mobile-2").css('height', '600px');
+            $(".mobile-3").css('width', '275px');
+            $(".mobile-3").css('height', '490px');
+        });
+
+
         $("#js-title").click(function () {
             $(".js-div").show();
             $(".html-div").hide();

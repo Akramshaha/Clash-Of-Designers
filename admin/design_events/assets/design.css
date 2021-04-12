@@ -4,7 +4,7 @@ body {
 
 .editors {
     width: 100%;
-    height: 45vh;
+    height: 100vh;
 }
 
 .ace_print-margin {
@@ -48,7 +48,7 @@ body {
 
 #output {
     width: 100%;
-    height: 50vh;
+    height: 100vh;
     border: 1px solid rgb(233, 233, 233);
 }
 
@@ -86,8 +86,7 @@ body {
 
     .switch-field {
         display: flex;
-        justify-content: center;
-        margin-bottom: 36px;
+        margin-bottom: 20px;
         overflow: hidden;
     }
 
@@ -132,4 +131,76 @@ body {
     h2 {
         font-size: 18px;
         margin-bottom: 8px;
+        text-align: left;
+    }
+
+    .evaluate{
+     display: block;
+    }
+    .open-evaluate{
+        position: absolute;
+        right: 20px;
+    }
+    .open-evaluate img{
+        width: 30px !important;
+        height: auto;
+    }
+    .close-evaluate{
+        position: absolute;
+        left: 0;
+        width: 35px;
+        height: auto;
+       }
+    
+    .code{
+        display: none;
+    }
+
+    .mob{
+        display: none;
+    }
+    .output{
+        display: block;
+    }
+
+    iframe{
+        border:0 !important;
+        z-index: 10;
+    }
+
+    .mobile-1{
+        margin-top: 50px;
+        margin-left: -10px;
+    }
+    .mobile-2{
+        margin-top: 50px;
+        margin-left: -30px;
+    }
+    .mobile-3{
+        margin-top: 75px;
+        margin-left: -48px;
+    }
+
+    .mob-1{
+        background: url(../assets/images/phone.png);
+        background-size: 350px auto;
+        background-repeat: no-repeat;
+        z-index: 100;
+    }
+    .mob-2{
+        background: url(../assets/images/phone-pro.png);
+        background-size: 340px auto;
+        background-repeat: no-repeat;
+        z-index: 100;
+    }
+    .mob-3{
+        background: url(../assets/images/phone-lite.png);
+        background-size: 320px auto;
+        background-repeat: no-repeat;
+        z-index: 100;
+    }
+
+    .icons img{
+        width:40px;
+        height: auto;
     }
