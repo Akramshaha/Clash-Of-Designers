@@ -1,6 +1,6 @@
  <!-- Sidebar -->
  <div class="sidebar-heading pb-5 font-italic text-center">
-     <img style="width:100px;" src="assets/images/NGClogo.png" alt="">
+     <img style="width:100px;" src="assets/images/logo.png" alt="">
      <p class="mt-2" style="width:200px;">Clash Of Designers</p>
  </div>
 

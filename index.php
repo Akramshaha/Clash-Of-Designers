@@ -39,7 +39,7 @@
                 <div class="div-center">
                     <img src="./assets/images/logo.png" alt="logo" style="height: 80px; width: auto;">
                 </div><br>
-                <h2 class="div-center" style="font-family: hacked;"> CLASH OF DEJOINERS </h2>
+                <h2 class="div-center" style="font-family: hacked;"> CLASH OF DESIGNERS </h2>
                 <br> <input type="text" class="form-control" name="mail" size="40" required
                     placeholder="Enter Your Email"> <br>
                 <input type="password" class="form-control" name="pass" required placeholder="Enter Your Password">
@@ -63,7 +63,7 @@
                 <div class="div-center">
                     <img src="./assets/images/logo.png" alt="logo" style="height: 80px; width: auto;">
                 </div><br>
-                <h2 class="div-center" style="font-family: hacked;"> CLASH OF DEJOINERS </h2>
+                <h2 class="div-center" style="font-family: hacked;"> CLASH OF DESIGNERS </h2>
                 <br> 
                 
                 <input type="text" class="form-control" name="name" required placeholder="Enter Your Name"> <br>
@@ -76,6 +76,8 @@
                 <div class="div-center">
                     <input type="submit" class="px-4 border login" value="register">
                 </div>
+
+                <a href="#" onclick="openLogin()" class="text-dark mt-4 div-center">  Already register? Login here </a>
             </form>
         </div>
     </div>
@@ -89,7 +91,11 @@
     function openRegister(){
         document.getElementById('loginModel').style.display = "none";
         document.getElementById('registerModel').style.display = "block";
+    }
 
+    function openLogin(){
+        document.getElementById('loginModel').style.display = "block";
+        document.getElementById('registerModel').style.display = "none";
     }
 </script>
 

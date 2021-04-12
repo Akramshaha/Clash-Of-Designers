@@ -179,16 +179,38 @@
     <?php }
     ?>
 
-        </div>
+    </div>
 
         <!-- Results -->
-        <div class="col-sm-4">
-            <h2>Results</h2>
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="h3">No Results</h1>
-                    <p class="lead">You haven't participated yet... Check out our events!</p>
-                </div>
+    <div class="col-sm-4">
+        <h2>Results</h2>
+        <div class="w-100">
+            <?php 
+                $eventQuery = "SELECT id, name, description, start_time, end_time, image, registration, image, registration_starts, registration_ends FROM design_event";
+                $eventResult = mysqli_query($db, $eventQuery);
+                $j = 0;
+            
+                while ( $eventRow = mysqli_fetch_assoc($eventResult)) {
+                    $eventId = $eventRow['id'];
+                    $startTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['start_time']), "Y-m-d H:i:s");
+                    $endTime=date_format(date_create_from_format("Y-m-d H:i:s", $eventRow['end_time']), "Y-m-d H:i:s");
+                    $currentTime = date("Y-m-d H:i:s");
+                    if($currentTime > $endTime ) { ?>
+
+
+                    <div class="card mb-3" style="width: 18rem;">
+                        <img src="<?php echo $eventRow['image'] ?>" class="card-img-top" alt="bannner">
+                        <div class="card-body">
+                        <h5 class="card-title"><?php echo $eventRow['name'] ?></h5>
+                                    <p class="card-text"><?php echo substr( $eventRow['description'],0,30);  ?></p>
+                                    <a href="leaderboard.php?event=<?= base64_encode($eventRow['id']) ?>" class="btn btn-sm float-right btn-primary">Leaderboard</a>
+                        </div>
+                    </div>
+
+                <?php 
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
