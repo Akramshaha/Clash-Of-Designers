@@ -339,11 +339,11 @@
             $(".mobile-output").show();
             $(".mob").show();
             $(".output").hide();
-            $(".mobile-1").css('width', '55%');
+            $(".mobile-1").css('width', '52%');
             $(".mobile-1").css('height', '75%');
-            $(".mobile-2").css('width', '55%');
+            $(".mobile-2").css('width', '52%');
             $(".mobile-2").css('height', '75%');
-            $(".mobile-3").css('width', '45%');
+            $(".mobile-3").css('width', '42%');
             $(".mobile-3").css('height', '70%');
         });
 
