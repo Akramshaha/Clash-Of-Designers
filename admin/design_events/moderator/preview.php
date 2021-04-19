@@ -344,7 +344,7 @@
             $(".mobile-2").css('width', '52%');
             $(".mobile-2").css('height', '75%');
             $(".mobile-3").css('width', '42%');
-            $(".mobile-3").css('height', '70%');
+            $(".mobile-3").css('height', '66%');
         });
 
 
