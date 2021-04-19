@@ -274,23 +274,28 @@
     <script>
         var html = ace.edit("html");
         ace.require("ace/ext/language_tools");
-
+        
         html.setTheme("ace/theme/monokai");
         html.session.setMode("ace/mode/html");
         html.setValue(htmlFrameCode);
+        html.setReadOnly(true);
 
         var css = ace.edit("css");
         css.setTheme("ace/theme/monokai");
         css.session.setMode("ace/mode/css");
         css.setValue(cssFrameCode);
+        css.setReadOnly(true);
 
         var js = ace.edit("js");
         js.setTheme("ace/theme/monokai");
         js.session.setMode("ace/mode/javascript");
         js.setValue(jsFrameCode);
+        js.setReadOnly(true);
     </script>
 
     <script>
+
+
         function removeActive() {
             $(".view-code").removeClass("active");
             $(".desktop-view").removeClass("active");
