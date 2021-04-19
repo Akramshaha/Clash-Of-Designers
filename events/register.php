@@ -19,7 +19,7 @@
 
     $alertMsg = "";
     if( isset($_GET["event"])) {
-        $eventId = $_GET["event"];
+        $eventId = base64_decode($_GET["event"]);
 
         $eventQuery = "SELECT * FROM design_event WHERE id = $eventId LIMIT 1";
         $eventResult = mysqli_query($db, $eventQuery);
@@ -41,5 +41,5 @@
         $alertMsg = "Bad Request";
     }
 
-    echo "<script> window.alert('$alertMsg'); window.location = 'info?id=$eventId' </script>";
+    echo "<script> window.alert('$alertMsg'); window.location = 'info?event=base64_encode($eventId)' </script>";
 ?>
