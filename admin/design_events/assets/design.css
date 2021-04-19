@@ -12,34 +12,45 @@ body {
 }
 
 .editor-title {
-    height: 3.40vh;
+    height: 3.7vh;
     background-color: #f0f0f0;
+    padding: 1px;
 }
 .editor-title p{
     text-align: start;
     color: black;
+    margin-bottom: 6;
 }
 
 #html-title {
-    width: 70px;
-    background-color: #27A444;
-    padding: 5px;
+    background-color: #2F312A;
+    padding: 6px 10px;
     text-align: center;
     cursor: pointer;
+    border: 1px solid rgb(68, 62, 62);
+    border-radius: 3px;
+    color: white;
+    margin-top: 12px;
 }
 
 #css-title {
-    padding: 5px;
-    background-color:white;
+    padding: 6px 10px;
+    background-color:#2F312A;
     text-align: center;
     cursor: pointer;
+    color: white;
+    border-top: 1px solid rgb(68, 62, 62);
+    border-bottom: 1px solid rgb(68, 62, 62);
+    border-radius: 3px;
 }
 
 #js-title {
-    padding: 5px 10px;
+    padding: 6px 20px;
     background-color: white;
     text-align: center;
     cursor: pointer;
+    border: 1px solid rgb(68, 62, 62);
+    border-radius: 3px;
 }
 
 #html {
@@ -53,7 +64,7 @@ body {
 }
 
 
-.js-div, .css-div {
+.js-div {
     display: none;
 }
 
@@ -135,7 +146,12 @@ body {
     }
 
     .evaluate{
-     display: block;
+     display: none;
+     background: white !important;
+     position: absolute;
+     top: 8%;
+     right: 0;
+     z-index: 100;
     }
     .open-evaluate{
         position: absolute;
@@ -171,33 +187,39 @@ body {
 
     .mobile-1{
         margin-top: 50px;
-        margin-left: -10px;
+        margin-left: -40%;
     }
     .mobile-2{
         margin-top: 50px;
-        margin-left: -30px;
+        margin-left: -48%;
     }
     .mobile-3{
-        margin-top: 75px;
-        margin-left: -48px;
+        margin-top: 60px;
+        margin-left: -54%;
     }
 
     .mob-1{
         background: url(../assets/images/phone.png);
-        background-size: 90% 90%;
+        background-size: 60% 90%;
         background-repeat: no-repeat;
+        width: auto;
+        height: 70vh;
         z-index: 100;
     }
     .mob-2{
         background: url(../assets/images/phone-pro.png);
-        background-size: 90% 90%;
+        background-size: 55% 90%;
         background-repeat: no-repeat;
+        width: auto;
+        height: 70vh;
         z-index: 100;
     }
     .mob-3{
         background: url(../assets/images/phone-lite.png);
-        background-size: 90% 90%;
+        background-size: 50% 90%;
         background-repeat: no-repeat;
+        width: auto;
+        height: 60vh;
         z-index: 100;
     }
 

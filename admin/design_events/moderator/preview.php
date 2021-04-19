@@ -61,23 +61,24 @@
                 src="../assets/images/icon-evaluate.png">&nbsp; Evaluate</span>
     </div>
     <div class="container-fluid p-0 mx-auto">
-        <div class=" p-0 pl-3 border row" id="add-col">
+        <div class=" p-0 pl-2 border row" id="add-col">
 
 
 
             <!-- Output -->
-            <div class="output col-sm-9">
+            <div class="output col-sm-12">
                 <iframe id="output"> </iframe>
             </div>
 
             <!-- Mobile view -->
-            <div class="mob mob-1 col-sm-3">
+            
+            <div class="mob mob-1 col-sm-4">
                 <iframe class="mobile-output mobile-1" id="output1"> </iframe>
             </div>
-            <div class="mob mob-2 col-sm-3">
+            <div class="mob mob-2 col-sm-4">
                 <iframe class="mobile-output mobile-2" id="output2"> </iframe>
             </div>
-            <div class="mob mob-3 col-sm-3">
+            <div class="mob mob-3 col-sm-4">
                 <iframe class="mobile-output mobile-3" id="output3"> </iframe>
             </div>
             <!-- </div> -->
@@ -129,26 +130,35 @@
             </script>
 
             <!-- code -->
-            <div class="code p-0 border" id="ready">
-                <div class="editor-title border">
-                    <p><span id="html-title"> HTML </span> <span id="css-title"> CSS </span> <span id="js-title"> JS
-                        </span></p>
-                </div>
-                <div class="html-div">
+            <div class="col-sm-12 code p-0 border" id="ready">
+                <div class="row">
+                <div class="col-sm-6 html-div">
+                    <div class="editor-title border">
+                        <p><span id="html-title"> HTML </span></p>
+                    </div>
                     <div id="html" class="editors" placeholder="HTML"> </div>
                 </div>
 
+                <div class="col-sm-6">
+                    <div class="editor-title  border">
+                        <p><span id="css-title"> CSS </span> <span id="js-title"> JS
+                            </span></p>
+                    </div>
 
-                <div class="css-div" id="cssDiv">
-                    <div id="css" class="editors" placeholder="CSS"> </div>
+                    <div class="css-div" id="cssDiv">
+                        <div id="css" class="editors" placeholder="CSS"> </div>
+                    </div>
+
+                    <div class="js-div" id="jsDiv">
+                        <div id="js" class="editors" placeholder="JavaScript"> </div>
+                    </div>
                 </div>
-                <div class="js-div" id="jsDiv">
-                    <div id="js" class="editors" placeholder="JavaScript"> </div>
                 </div>
+
             </div>
             <!-- Evaluation -->
-            <div class="col-sm-3 p-0 border evaluate">
-                <img src="../assets/images/close_evaluate.png" class="close-evaluate px-2 py-3">
+            <div class="col-sm-3 p-0 evaluate">
+                <!-- <img src="../assets/images/close_evaluate.png" class="close-evaluate px-2 py-3"> -->
                 <p class="border-bottom w-100 bg-success text-light py-2 h3 px-5">Evaluate</p>
                 <form action="./evaluate.php" method="post">
                     <input type="hidden" name="user_id" value="<?= $code_row['user_id'] ?>">
@@ -285,7 +295,7 @@
             $(".view-code").removeClass("active");
             $(".desktop-view").removeClass("active");
             $(".mobile-view").removeClass("active");
-            $(".close-evaluate").hide();
+            $(".evaluate").hide();
         }
 
         $(".desktop-view").click(function () {
@@ -293,17 +303,17 @@
             $(".close-evaluate").show();
             $(".desktop-view").addClass("active");
             $(".output").removeClass("col-md-12");
-            $(".evaluate").show("slide", {
-                direction: "right"
-            }, 500);
+            // $(".evaluate").show("slide", {
+            //     direction: "right"
+            // }, 500);
             $(".output").show();
             $(".code").hide();
             $(".mob").hide();
         });
 
-        $(".close-evaluate").click(function () {
-            $(".output").addClass("col-md-12");
-            $(".evaluate").hide("slide", {
+
+        $(".open-evaluate").click(function () {
+            $(".evaluate").toggle("slide", {
                 direction: "right"
             }, 500);
         });
@@ -313,56 +323,55 @@
             $(".view-code").addClass("active");
             $(".output").hide();
             $(".mob").hide();
-            $(".code").addClass("col-md-9");
-            $(".evaluate").show();
             $(".code").show();
-            $(".evaluate").show();
         });
 
 
         $(".mobile-view").click(function () {
             removeActive();
             $(".mobile-view").addClass("active");
-            $(".evaluate").show();
             $(".code").hide();
             $(".mobile-output").show();
             $(".mob").show();
             $(".output").hide();
-            $(".mobile-1").css('width', '80%');
+            $(".mobile-1").css('width', '55%');
             $(".mobile-1").css('height', '75%');
-            $(".mobile-2").css('width', '90%');
+            $(".mobile-2").css('width', '55%');
             $(".mobile-2").css('height', '75%');
-            $(".mobile-3").css('width', '80%');
+            $(".mobile-3").css('width', '45%');
             $(".mobile-3").css('height', '70%');
         });
 
 
         $("#js-title").click(function () {
             $(".js-div").show();
-            $(".html-div").hide();
             $(".css-div").hide();
-            $("#html-title").css('background', 'rgb(275, 275, 275)');
-            $("#js-title").css('background', '#27A444');
+            $("#js-title").css('color', 'white');
+            $("#css-title").css('color', 'black');
+            $("#js-title").css('background', '#2F312A');
             $("#css-title").css('background', 'rgb(275, 275, 275)');
         });
 
         $("#css-title").click(function () {
             $(".css-div").show();
-            $(".html-div").hide();
             $(".js-div").hide();
-            $("#html-title").css('background', 'rgb(275, 275, 275)');
+            $("#js-title").css('color', 'black');
+            $("#css-title").css('color', 'white');
             $("#js-title").css('background', 'rgb(275, 275, 275)');
-            $("#css-title").css('background', '#27A444');
+            $("#css-title").css('background', '#2F312A');
         });
 
-        $("#html-title").click(function () {
-            $(".html-div").show();
-            $(".css-div").hide();
-            $(".js-div").hide();
-            $("#js-title").css('background', 'rgb(275, 275, 275)');
-            $("#css-title").css('background', 'rgb(275, 275, 275)');
-            $("#html-title").css('background', '#27A444');
-        });
+        // $("#html-title").click(function () {
+        //     $(".html-div").show();
+        //     $(".css-div").hide();
+        //     $(".js-div").hide();
+        //     $("#js-title").css('color', 'black');
+        //     $("#html-title").css('color', 'white');
+        //     $("#css-title").css('color', 'black');
+        //     $("#js-title").css('background', 'rgb(275, 275, 275)');
+        //     $("#css-title").css('background', 'rgb(275, 275, 275)');
+        //     $("#html-title").css('background', '#2F312A');
+        // });
     </script>
     <script>
         function statusChanged() {
